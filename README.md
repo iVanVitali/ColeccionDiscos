@@ -1,2 +1,5 @@
 # ColeccionDiscos
-ColeccionDiscos es un proyecto realizado con las tecnologias tales como HTML5, CSS, JavaScript, jQyery y Firebase. Permite administrar los discos de música.
+ColeccionDiscos es un proyecto de una app que permite administrar los discos de música.
+
+#### Tecnologias utilizadas:
+    HTML5, CSS, Bootstrap, JavaScript, jQuery y Firebase.
