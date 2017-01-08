@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>HTML5 - Plantilla Simple</title>
+    <title>Coleccion de Discos App</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
@@ -21,19 +21,82 @@
 </head>
 <body>
 <div class="container">
-    <h1>Html5 - Plantilla Simple!</h1>
-    <h3>Con Bootstrap 3.3.7 y jQuery 3.1.1</h3>
-    <ul>
-        <li>Bootstrap v.3.3.7</li>
-        <li>jQuery v.3.1.1</li>
-    </ul>
+    <h1 class="page-header">Coleccion de Discos</h1>
+
+    <button type="button" class="btn btn-success" title="Agregar Disco Nuevo" data-toggle="modal" data-target="#agregarDiscoModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Autor</th>
+            <th>Año</th>
+            <th>Genero</th>
+        </tr>
+        </thead>
+        <tbody id="listaDiscos">
+            <!-- Mostrar lista completa de Discos -->
+        </tbody>
+    </table>
+
 </div>
+
+<div class="modal fade" id="agregarDiscoModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Agregar Disco Nuevo</h4>
+            </div>
+            <div class="modal-body">
+                <form  class="panel-body" id="guardar-disco">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" />
+                    </div>
+                    <div class="form-group">
+                        <label for="autor">Autor</label>
+                        <input type="text" class="form-control" name="autor" id="autor" placeholder="Autor" />
+                    </div>
+                    <div class="form-group">
+                        <label for="año">Año</label>
+                        <input type="number" class="form-control" name="año" id="año" placeholder="Año" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Genero:</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="genero" id="inlineRadio1" value="pop"> Pop
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="genero" id="inlineRadio2" value="dance"> Dance
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="genero" id="inlineRadio3" value="rock"> Rock
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción</label>
+                        <textarea class="form-control" rows="3" name="descripcion" id="descripcion"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                    <button type="submit" class="btn btn-primary">Guardar disco</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
 <script src="js/lib/jquery-3.1.1.min.js"></script>
 <!-- Bootstrap v3.3.7 compiled and minified JavaScript -->
 <script src="js/bootstrap.min.js"></script>
+<!-- Firebase API-->
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<!-- javascript de la aplicacion -->
+<script src="js/app.js"></script>
 </body>
 </html>
