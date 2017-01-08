@@ -18,14 +18,7 @@ $(document).ready(function () {
 
     inicializarFirebase();
 
-    var ColeccionDiscos = {
-
-        DatabaseService : firebase.database(),
-        ruta : "miColeccion",
-    };
-
     const DatabaseService = firebase.database();
-
 
     function obtenerDiscoDesdeFormulario($formulario) {
         var disco = {};
@@ -59,17 +52,6 @@ $(document).ready(function () {
         resetearFormulario();
     });
 
-
-
-
-    var taza = {
-        color:	"blanco",
-        altura:	"10cm",
-        diametro:	"5cm",
-        estampado: "mapa mundo"
-    };
-
-
     function ObtenerDiscos() {
         var discos = DatabaseService.ref("discos").orderByChild("autor");
         var listaCompletaDiscos = $("#listaDiscos");
@@ -86,6 +68,9 @@ $(document).ready(function () {
                 var autorDisco = disco.child("autor").val();
                 var anioPublicacion = disco.child("año").val();
                 var genero = disco.child("genero").val();
+                var creado = disco.child("creado").val();
+                var fechaIngreso = new Date(creado);
+                var opciones = { year: 'numeric', month: '2-digit', day: '2-digit' };
 
                 datosDisco = "";
                 datosDisco += "<tr>";
@@ -93,6 +78,8 @@ $(document).ready(function () {
                 datosDisco += "<td>"+ autorDisco + "</td>";
                 datosDisco += "<td>"+ anioPublicacion + "</td>";
                 datosDisco += "<td>"+ genero + "</td>";
+                datosDisco += "<td>"+ fechaIngreso.toLocaleDateString('es-AR', opciones) + "</td>";
+
                 datosDisco += "</tr>";
 
                 listaCompletaDiscos.append(datosDisco);
@@ -111,11 +98,4 @@ $(document).ready(function () {
 
     ObtenerDiscos();
 
-    var hoy = new Date().getTime();
-    // request a weekday along with a long date
-    var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-
-    var fecha = new Date(hoy);
-
-    console.log(taza, fecha.toLocaleDateString('es-AR', options), "hola");
 });
